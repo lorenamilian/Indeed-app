@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jobs</title>
+</head>
+<body>
+        <div class="container" >
+                <form action="/" method="POST" >
+                    <input name="work" class="ghost-input" type="text" placeholder="Enter job"  style="font-size: 20px;">
+                    <input class="ghost-buttom" type="submit" value="Weather Now"  style="font-size: 20px;" >
+                </form>
+
+        <% if(error){ %>
+            <h1><%= error %></h1>
+        <% } else { %>
+           <h1><%= jobs %></h1>
+      <% } %>
+    
+</body>
+</html>
