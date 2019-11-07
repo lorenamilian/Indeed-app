@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const express = require('express')
 
 const bodyParser = require("body-parser")
@@ -25,13 +27,13 @@ app.get('/', function (req, res) {
 
 //get main
 app.get('/', function (req, res) {
-  res.render('main.ejs', {job: null, error: null});
+  res.render('main.ejs');
 });
 
 //getting indeed
 
 app.get('/indeed', function (req, res) {
-  res.render('indeed.ejs');
+  res.render('indeed.ejs', {job:null, error:null});
   
 });
  
@@ -39,10 +41,12 @@ app.post('/indeed', function(req, res){
   
   let err = false;
      
-  let url = "https://authenticjobs.com/api/?api_key="+ apiKey +"&method=aj.jobs.get&id=1569";
-
-       request( url , function (error, response, body) {
+  let url = "https://authenticjobs.com/api/?api_key="+ apiKey +"&method=aj.jobs.getlocations&keywords=web+developer,mysql&perpage=1&format=json";
   
+      request( url , function (error, response, body) {
+        console.log(error)
+
+             
        if(error){
          res.render('indeed.ejs', {job:null, error:"Error Please try again"})
        } else{
@@ -50,8 +54,9 @@ app.post('/indeed', function(req, res){
           if(job == undefined){
             res.render('indeed.ejs', {job:null, error:"Please try again"})
           }else{
-            let alljobs = "this are your options: " + req.body.work + ' ' + job;//.type;
+            let alljobs = "this are your options: " + req.body.work + ' ' + job. listing;
             res.render('indeed.ejs', {job:alljobs, error:null});
+            console.log(job)
           }
        }
     });
