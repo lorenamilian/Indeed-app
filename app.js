@@ -41,22 +41,23 @@ app.post('/indeed', function(req, res){
   
   let err = false;
      
-  let url = "https://authenticjobs.com/api/?api_key="+ apiKey +"&method=aj.jobs.getlocations&keywords=web+developer,mysql&perpage=1&format=json";
+  let url = "https://authenticjobs.com/api/?api_key="+ apiKey +"&method=aj.jobs.search&keywords=junior,developer&perpage=3&format=json";
   
       request( url , function (error, response, body) {
-        console.log(error)
+        console.log('eroor: '+error)
 
              
        if(error){
          res.render('indeed.ejs', {job:null, error:"Error Please try again"})
        } else{
           let job = JSON.parse(body);
+          console.log(job.listings.listing[2])
           if(job == undefined){
             res.render('indeed.ejs', {job:null, error:"Please try again"})
           }else{
-            let alljobs = "this are your options: " + req.body.work + ' ' + job. listing;
+            let alljobs = "this are your options: " + job.listings.listing.description;
             res.render('indeed.ejs', {job:alljobs, error:null});
-            console.log(job)
+            
           }
        }
     });
