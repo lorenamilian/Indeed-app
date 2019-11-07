@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Jobs</title>
+    <link rel="stylesheet" href="indeed.css">
 </head>
 <body>
-        <div class="container" >
-                <form action="/" method="POST" >
-                    <input name="work" class="ghost-input" type="text" placeholder="Enter job"  style="font-size: 20px;">
-                    <input class="ghost-buttom" type="submit" value="Weather Now"  style="font-size: 20px;" >
+        <a href="/">Go Back</a>
+                <form action="./indeed" method="POST" >
+                    <input name="work" class="input" type="text" placeholder="Enter job"  style="font-size: 20px;">
+                    <input class="buttom" type="submit" value="Find"  style="font-size: 20px;" >
                 </form>
 
-        <% if(error){ %>
-            <h1><%= error %></h1>
-        <% } else { %>
-           <h1><%= jobs %></h1>
-      <% } %>
-    
+        <ul>
+            <li>First job</li>
+            <li>Second job</li>
+            <li>Third job</li>
+            <li>Fourth job</li>
+        </ul>
+
 </body>
 </html>

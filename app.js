@@ -16,9 +16,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //ROUTES
  
-//getSearch Engine APISearch Engine API
-Jobs Business, 
-Jobs Business, 
+//getSearch Engine APISearch Engine API 
 app.get('/', function (req, res) {
   res.render('main.ejs');
 })
@@ -39,7 +37,7 @@ app.post('/indeed', function(req, res){
   
   let err = false;
      
-  let url = "http://api." + req.body.city +"&units=imperial&APPID=" + apiKey;
+  let url = "https://authenticjobs.com/api/?api_key=308d3e31bbbb07c908889db3f2f60607&method=aj.jobs.get&id=1569";
 
        request( url , function (error, response, body) {
   
@@ -47,7 +45,7 @@ app.post('/indeed', function(req, res){
          res.render('indeed.ejs', {job:null, error:"Error Please try again"})
        } else{
           let job = JSON.parse(body);
-          if(job.main == undefined){
+          if(job == undefined){
             res.render('indeed.ejs', {job:null, error:"Please try again"})
           }else{
             let alljobs = "this are your options: " + req.body.work + ' ' + job;//.main.temp;

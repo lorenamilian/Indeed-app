@@ -1,3 +1,68 @@
 body{
     background-image: url(i1.jpg);
-}
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    color: rgb(121, 45, 45);
+    padding: 50px;
+    font-family: 'Playfair Display', serif;
+    
+ }
+ 
+ .input{
+  text-align: center;
+  border: none;
+  margin-left: 25%;
+  margin-top: 7%;
+  width: 20%;
+  height: 30%;
+  padding: 13px 10px 13px 10px;
+ }
+
+
+ .buttom {
+    background-color:   rgb(121, 45, 45);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 6px;
+    transition: all .5s ease-in-out;
+  }
+  
+  .buttom:hover{
+    background-color: rgb(88, 33, 33);
+    border-radius: 6px;
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  ul{
+    margin-top: 8%;
+  }
+
+  li{
+    font-size: 190%;
+    margin-left: 25%;
+    margin-top: 2.5%;
+  }
+ 
+ 
+  a:link, a:visited {
+    background-color:   rgb(121, 45, 45);
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 6px;
+    transition: all .5s ease-in-out;
+    float: right;
+  }
+  
+  a:hover, a:active {
+    background-color: rgb(88, 33, 33);
+    border-radius: 6px;
+    box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0 rgba(0, 0, 0, 0.19);
+  }
