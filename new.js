@@ -23,7 +23,11 @@ app.use(bodyParser.urlencoded({extended: false}));
  
 //get
 app.get('/', function (req, res) {
-  res.render('home.ejs', {weather: null, error: null});
+  res.render('main.ejs');
+})
+
+app.get('/indeed', function (req, res) {
+  res.render('indeed.ejs', {weather: null, error: null});
 })
 
 app.post('/', function(req, res){
@@ -35,14 +39,14 @@ app.post('/', function(req, res){
        request( url , function (error, response, body) {
   
        if(error){
-         res.render('home.ejs', {weather:null, error:"Error Please try again"})
+         res.render('indeed.ejs', {job:null, error:"Error Please try again"})
        } else{
-          let weather = JSON.parse(body);
-          if(weather == undefined){
-            res.render('home.ejs', {weather:null, error:"Please try again"})
+          let job = JSON.parse(body);
+          if(job == undefined){
+            res.render('indeed.ejs', {job:null, error:"Please try again"})
           }else{
-            let weatherNow = "the weather " + req.body.city + ' ' + weather;
-            res.render('home.ejs', {weather:weatherNow, error:null});
+            let alljobs = "the weather " + req.body.work + ' ' + job;
+            res.render('indeed.ejs', {job:alljobs, error:null});
           }
        }
     });

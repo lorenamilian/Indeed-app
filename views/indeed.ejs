@@ -21,5 +21,13 @@
             <li>Fourth job</li>
         </ul>
 
+
+        <% if(error){ %>
+            <h1><%= error %></h1>
+        <% } else { %>
+           <li><%= job %></li>
+    <% } %> 
+
+
 </body>
 </html>

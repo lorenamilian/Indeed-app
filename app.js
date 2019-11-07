@@ -5,6 +5,8 @@ const bodyParser = require("body-parser")
 const request = require("request");
 
 const app = express()
+
+const apiKey = process.env.KEY;
  
 //setting view engine
 app.set('view engine', 'ejs')
@@ -23,7 +25,7 @@ app.get('/', function (req, res) {
 
 //get main
 app.get('/', function (req, res) {
-  res.render('main.ejs', {weather: null, error: null});
+  res.render('main.ejs', {job: null, error: null});
 });
 
 //getting indeed
@@ -37,7 +39,7 @@ app.post('/indeed', function(req, res){
   
   let err = false;
      
-  let url = "https://authenticjobs.com/api/?api_key=308d3e31bbbb07c908889db3f2f60607&method=aj.jobs.get&id=1569";
+  let url = "https://authenticjobs.com/api/?api_key="+ apiKey +"&method=aj.jobs.get&id=1569";
 
        request( url , function (error, response, body) {
   
@@ -48,7 +50,7 @@ app.post('/indeed', function(req, res){
           if(job == undefined){
             res.render('indeed.ejs', {job:null, error:"Please try again"})
           }else{
-            let alljobs = "this are your options: " + req.body.work + ' ' + job;//.main.temp;
+            let alljobs = "this are your options: " + req.body.work + ' ' + job;//.type;
             res.render('indeed.ejs', {job:alljobs, error:null});
           }
        }
