@@ -41,7 +41,7 @@ app.post('/indeed', function(req, res){
   
   let err = false;
      
-  let url = "https://authenticjobs.com/api/?api_key="+ apiKey +"&method=aj.jobs.search&keywords=junior,developer&perpage=3&format=json";
+  let url = "https://authenticjobs.com/api/?api_key="+ apiKey +"&method=aj.jobs.search&keywords=junior,developer&perpage=10&format=json";
   
       request( url , function (error, response, body) {
         console.log('eroor: '+error)
@@ -51,12 +51,13 @@ app.post('/indeed', function(req, res){
          res.render('indeed.ejs', {job:null, error:"Error Please try again"})
        } else{
           let job = JSON.parse(body);
-          console.log(job.listings.listing[2])
+          const listings = job.listings.listing
+          console.log(listings)
           if(job == undefined){
             res.render('indeed.ejs', {job:null, error:"Please try again"})
           }else{
             let alljobs = "this are your options: " + job.listings.listing.description;
-            res.render('indeed.ejs', {job:alljobs, error:null});
+            res.render('indeed.ejs', { job: listings, error: null });
             
           }
        }

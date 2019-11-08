@@ -8,22 +8,24 @@
     <link rel="stylesheet" href="indeed.css">
 </head>
 <body>
-        <a href="/">Go Back</a>
-                <form action="/indeed" method="POST" >
-                    <input name="work" class="input" type="text" placeholder="Enter job"  style="font-size: 20px;">
-                    <input class="buttom" type="submit" value="Find"  style="font-size: 20px;" >
-                </form>
+    <a href="/">Back</a>
+    <form action="/indeed" method="POST" >
+        <input name="work" class="input" type="text" placeholder="Enter job"  style="font-size: 20px;">
+        <input class="buttom" type="submit" value="Find"  style="font-size: 20px;" >
+    </form>
 
- <% if(error){ %>
-            <h1><%= error %></h1>
-        <% } else { %>
-           <li><%= job %></li>
-    <% } %> 
- 
+    
 
+    <% for(let i=0; i< job.length; i++) { %>
+        <h2><%= job[i].title %></h2>
+        <p><%= job[i].company.name %></p>
+        <p><%= job[i].company.url %></p>
+        <a href="<%= job[i].apply_url%>" target="_blank">Apply Now</a>
+    <% } %>
 
-       
-
-
+  
+    <div>
+        
+    </div>
 </body>
 </html>
