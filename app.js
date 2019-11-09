@@ -52,7 +52,7 @@ app.post('/indeed', function(req, res){
        } else{
           let job = JSON.parse(body);
           const listings = job.listings.listing
-          console.log(listings)
+         
           if(job == undefined){
             res.render('indeed.ejs', {job:null, error:"Please try again"})
           }else{
@@ -64,7 +64,6 @@ app.post('/indeed', function(req, res){
     });
     
 });
-
 
 app.listen(3002, function(){
   console.log("my server is running better")
