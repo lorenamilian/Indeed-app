@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="one">
-    <h1 class="text2">Here you can research  and apply <br>for the Web-Developer position that you're looking for... </h1>
+    <h1 class="text2">Search  and apply for the Web-Developer<br> position that you're looking for... </h1>
     
      <h3 class="text">Is it worth learning web development in 2019? In fact, as per the U.S. Bureau of Labor Statistics (BLS) report, Web developer jobs will grow at a rate of 13% over 10 years measured from 2016 to 2026. Precisely, this growth rate is faster than most other occupations. If you are planning to start a career as a Web Developer take a look at all the possibilities that you could have ones you are ready to get a job and which abilities the companies are looking for the most. And if you already have some knowledge you might find some entry label job. 
         </h3>
@@ -18,9 +18,9 @@
 
     <div class="two">
 
-    <form action="/indeed" method="POST" >
+    <form action="/" method="POST" >
         <input name="work" class="input" type="text" placeholder="Enter job"  style="font-size: 20px;">
-        <input class="buttom" type="submit" value="Find"  style="font-size: 20px;" >
+        <input onclick="scrollWin(0, 300)" class="buttom" type="submit" value="Find"  style="font-size: 20px;" >
     </form>
 
  <% if(job !== null){ %>
@@ -29,11 +29,20 @@
        <br><br><br><br><br> <h2 style="font-size: 200%;"><%= job[i].title %></h1>
         <h2><%= job[i].company.name %></h2>
         <h3><%= job[i].company.url %></h3>
+       <% if(job[i].company.location){ %>
+          <h3><%= job[i].company.location.name %></h3>
+       <%} %>
         <a href="<%= job[i].apply_url%>" target="_blank" id="apply">Apply Now</a>
     <% } %>
 <% }%>
 
 </div>
+
+<script>
+    function scrollWin(x, y) {
+      window.scrollBy(x, y);
+    }
+    </script>
 
 </body>
 </html>
